@@ -219,6 +219,7 @@ module.exports = Structures.extend('Message', Message => {
 			if(throttle) throttle.usages++;
 			const typingCount = this.channel.typingCount;
 			try {
+				komutc = komutc + 1;
 				this.client.emit('debug', `Running command ${this.command.groupID}:${this.command.memberName}.`);
 				const promise = this.command.run(this, args, fromPattern);
 				/**
