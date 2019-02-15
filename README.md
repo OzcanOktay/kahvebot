@@ -1,3 +1,5 @@
+# Kahve Bot
+Kahve Bot master için kullanılan commando modülü.
 # Commando
 [![Discord](https://discordapp.com/api/guilds/369039567640068107/embed.png)](https://discord.gg/6Q8Geju)
 [![Downloads](https://img.shields.io/npm/dt/discord.js-commando.svg)](https://www.npmjs.com/package/discord.js-commando)
