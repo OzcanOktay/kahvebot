@@ -212,7 +212,7 @@ module.exports = Structures.extend('Message', Message => {
 					.setDescription("Komut iptal edildi.")
 					.setTitle("Komut İptali")
 					.setColor("RANDOM")
-					.setFooter(`Komut ${this.member.displayName} tarafından iptal edildi`, this.author.displayAvatarURL({format: "png"}))
+					.setFooter(`Komut ${this.member.displayName} tarafından iptal edildi.`, this.author.displayAvatarURL({format: "png"}))
 					return this.reply(embed);
 				}
 				args = result.values;
