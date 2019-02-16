@@ -178,13 +178,12 @@ class Argument {
 			}
 
 			// Prompt the user for a new value
-			prompts.push(await msg.reply(stripIndents`
-				${empty ? this.prompt : valid ? valid : `Yanlış bir ${this.label} girdiniz.`}
-				${oneLine`
-					Komutu iptal etmek için \`iptal\` yazabilirsiniz.
-					${wait ? `Komut ${this.wait} saniye sonra iptal edilecek.` : ''}
-				`}
-			`));
+			let embed = new Discord.MessageEmbed()
+			.setColor('RANDOM')
+			.setTitle("Komut Girişi")
+			.setDescription(empty ? this.prompt : valid ? valid : `Yanlış bir ${this.label} girdiniz.`)
+			.setFooter(`Komutu iptal etmek için iptal yazabilirsiniz ${this.wait} saniye sonra iptal edilecek`)
+			prompts.push(await msg.reply(embed));
 
 			// Get the user's response
 			const responses = await msg.channel.awaitMessages(msg2 => msg2.author.id === msg.author.id, {
@@ -194,6 +193,7 @@ class Argument {
 
 			// Make sure they actually answered
 			if(responses && responses.size === 1) {
+			
 				answers.push(responses.first());
 				val = answers[answers.length - 1].content;
 			} else {
