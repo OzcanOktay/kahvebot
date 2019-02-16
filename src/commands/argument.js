@@ -182,7 +182,7 @@ class Argument {
 			.setColor('RANDOM')
 			.setTitle("Komut Girişi")
 			.setDescription(empty ? this.prompt : valid ? valid : `Yanlış bir ${this.label} girdiniz.`)
-			.setFooter(`Komutu iptal etmek için iptal yazabilirsiniz ${this.wait} saniye sonra iptal edilecek`)
+			.setFooter(`Komutu iptal etmek için iptal yazabilirsiniz ${this.wait} saniye sonra iptal edilecek.`)
 			prompts.push(await msg.reply(embed));
 
 			// Get the user's response
