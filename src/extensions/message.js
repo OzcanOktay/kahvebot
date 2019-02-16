@@ -208,7 +208,12 @@ module.exports = Structures.extend('Message', Message => {
 					 * @param {CommandoMessage} message - Command message that the command ran from (see {@link Command#run})
 					 */
 					this.client.emit('commandCancelled', this.command, result.cancelled, this);
-					return this.reply('Komut iptal edildi.');
+					let embed = new Discord.MessageEmbed()
+					.setDescription("Komut iptal edildi.")
+					.setTitle("Komut İptali")
+					.setColor("RANDOM")
+					.setFooter(`Komut ${this.member.displayName} tarafından iptal edildi`, this.author.displayAvatarURL({format: "png"}))
+					return this.reply(embed);
 				}
 				args = result.values;
 			}
@@ -219,7 +224,6 @@ module.exports = Structures.extend('Message', Message => {
 			if(throttle) throttle.usages++;
 			const typingCount = this.channel.typingCount;
 			try {
-				komutc = komutc + 1;
 				this.client.emit('debug', `Running command ${this.command.groupID}:${this.command.memberName}.`);
 				const promise = this.command.run(this, args, fromPattern);
 				/**
