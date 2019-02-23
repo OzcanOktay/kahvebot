@@ -125,7 +125,6 @@ module.exports = Structures.extend('Message', Message => {
 			if(this.channel.type === 'text' && !this.guild.members.has(this.author.id) && !this.webhookID) {
 				this.member = await this.guild.members.fetch(this.author);
 			}
-
 			// Obtain the member for the ClientUser if it doesn't already exist
 			if(this.channel.type === 'text' && !this.guild.members.has(this.client.user.id)) {
 				await this.guild.members.fetch(this.client.user.id);
